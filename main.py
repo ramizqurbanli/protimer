@@ -11,9 +11,6 @@ paused_seconds = None
 timer = None  # Initialize timer as None to be created dynamically
 settings_window_open = False  # Checking if settings window is open
 
-with open("example.txt", "w") as file:
-    file.write("")# Create an empty file
-  
 # Load settings from the JSON file if available
 settings = load_settings()
 if settings:

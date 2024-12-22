@@ -9,5 +9,6 @@ def load_settings():
         try:
             with open('settings.json', 'r') as f:
                 return json.load(f)
-        except FileNotFoundError:
+        except :
+            save_settings(None)
             return False
