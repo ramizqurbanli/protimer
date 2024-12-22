@@ -65,7 +65,7 @@ main.py
 - Creates a timer label with a monospace font.
 - Defines styles for the buttons using 
 
-ttk.Style
+`ttk.Style`
 
 .
 
