@@ -19,11 +19,11 @@ The Pomodoro Timer is a productivity application built using Python and Tkinter.
 ## Installation
 1. Clone the repository:
     ```sh
-    git clone https://github.com/ramizqurbanli/Pro-Timer.git)
+    git clone https://github.com/ramizqurbanli/Pro-Timer.git
     ```
 2. Navigate to the project directory:
     ```sh
-    cd pomodoro-timer
+    cd protimer
     ```
 3. Install the required packages:
     ```sh
