@@ -4,17 +4,22 @@ from tkinter import messagebox
 from tkinter import ttk
 from tkinter import *
 from settings_save import save_settings, load_settings # type: ignore
+
 # Initialize pause time globally
 paused_minutes = None
 paused_seconds = None
 timer = None  # Initialize timer as None to be created dynamically
 settings_window_open = False  # Checking if settings window is open
 
+with open("example.txt", "w") as file:
+    file.write("")# Create an empty file
+  
 # Load settings from the JSON file if available
-if load_settings() is not None:
-    default_time = load_settings()["work_time"]
-    break_time = load_settings()["break_time"]
-    window_opacity = load_settings()["window_opacity"]
+settings = load_settings()
+if settings:
+    default_time = settings["work_time"]
+    break_time = settings["break_time"]
+    window_opacity = settings["window_opacity"]
 else:
     # Initialize default values for work time and window opacity
     default_time = 25  # Work session time in minutes
@@ -22,8 +27,9 @@ else:
     window_opacity = 1  # Opacity level for the main window
 
 # Validate the window opacity value
-if window_opacity<0.1 or window_opacity>1.0:
-    window_opacity=1.0
+if window_opacity < 0.1 or window_opacity > 1.0:
+    window_opacity = 1.0
+
 # Define the main window
 window = tk.Tk()
 window.geometry("320x320")
