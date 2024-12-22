@@ -1,3 +1,4 @@
+#ProTimer v1.0
 # Pomodoro Timer
 
 ## Overview
