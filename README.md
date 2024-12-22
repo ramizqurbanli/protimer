@@ -39,11 +39,7 @@ The Pomodoro Timer is a productivity application built using Python and Tkinter.
 3. Configure the work and break durations in the settings window.
 
 ## Files
-- 
-
-main.py
-
-: The main application file that contains the GUI and logic for the Pomodoro Timer.
+- `main.py`: The main application file that contains the GUI and logic for the Pomodoro Timer.
 - `timer.py`: Contains the `CountdownTimer` class that handles the countdown logic.
 - `effect_sound.py`: Contains the function to play sound effects when the timer ends.
 
