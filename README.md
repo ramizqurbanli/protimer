@@ -1,7 +1,3 @@
-Sure! Here is the updated `README.md` file with the company license section added:
-
----
-
 # Pomodoro Timer
 
 ## Overview
