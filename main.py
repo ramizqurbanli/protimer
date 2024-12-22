@@ -3,18 +3,27 @@ from timer import CountdownTimer  # type: ignore
 from tkinter import messagebox
 from tkinter import ttk
 from tkinter import *
-import settings_save as ss  # type: ignore
+from settings_save import save_settings, load_settings # type: ignore
 # Initialize pause time globally
 paused_minutes = None
 paused_seconds = None
 timer = None  # Initialize timer as None to be created dynamically
 settings_window_open = False  # Checking if settings window is open
 
-# Initialize default values for work time and window opacity
-default_time = 25  # Work session time in minutes
-break_time = 5  # Break session time in minutes
-window_opacity = 1  # Opacity level for the main window
+# Load settings from the JSON file if available
+if load_settings() is not None:
+    default_time = load_settings()["work_time"]
+    break_time = load_settings()["break_time"]
+    window_opacity = load_settings()["window_opacity"]
+else:
+    # Initialize default values for work time and window opacity
+    default_time = 25  # Work session time in minutes
+    break_time = 5  # Break session time in minutes
+    window_opacity = 1  # Opacity level for the main window
 
+# Validate the window opacity value
+if window_opacity<0.1 or window_opacity>1.0:
+    window_opacity=1.0
 # Define the main window
 window = tk.Tk()
 window.geometry("320x320")
@@ -210,6 +219,12 @@ def openSettings():
         break_time = int(entry_break_time.get())
         window.attributes("-alpha", scale_opacity.get())
         labelTimer.config(text=f"{default_time:02d}:00")
+        # Save the settings to a JSON file
+        save_settings({
+            "work_time": default_time,
+            "break_time": break_time,
+            "window_opacity": scale_opacity.get()
+        })
         on_close()
 
     save_button = ttk.Button(settings_window, text="Save", command=saveSettings, style="StartButton.TButton")
