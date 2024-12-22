@@ -3,6 +3,7 @@ from timer import CountdownTimer  # type: ignore
 from tkinter import messagebox
 from tkinter import ttk
 from tkinter import *
+import settings_save as ss  # type: ignore
 # Initialize pause time globally
 paused_minutes = None
 paused_seconds = None
