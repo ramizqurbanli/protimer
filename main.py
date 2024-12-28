@@ -199,8 +199,6 @@ def openSettings():
         settings_window_open = False
         settings_window.destroy()
 
-    settings_window.protocol("WM_DELETE_WINDOW", on_close)
-
     tk.Label(settings_window, text="Work Time (minutes):").pack(pady=5)
     entry_default_time = tk.Entry(settings_window)
     entry_default_time.insert(0, str(default_time))
