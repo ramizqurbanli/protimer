@@ -13,15 +13,10 @@ settings_window_open = False  # Checking if settings window is open
 
 # Load settings from the JSON file if available
 settings = load_settings()
-if settings:
-    default_time =  int(settings["work_time"]) if int(settings["work_time"])>0 else 25
-    break_time = int(settings["break_time"]) if int(settings["break_time"])>0 else 5
-    window_opacity = settings["window_opacity"]
-else:
-    # Initialize default values for work time and window opacity
-    default_time = 25  # Work session time in minutes
-    break_time = 5  # Break session time in minutes
-    window_opacity = 1  # Opacity level for the main window
+
+default_time = int(settings.get("work_time", 25))
+break_time = int(settings.get("break_time", 5))
+window_opacity = settings.get("window_opacity", 1)
 
 # Validate the window opacity value
 if window_opacity < 0.1 or window_opacity > 1.0:
