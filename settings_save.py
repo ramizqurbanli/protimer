@@ -1,8 +1,13 @@
 import json
 import os
+import platform
 
 def get_settings_path():
-    app_data_dir = os.path.join(os.getenv('APPDATA'), 'ProTimer')
+    if platform.system() == 'Windows':
+        app_data_dir = os.path.join(os.getenv('APPDATA'), 'ProTimer')
+    else:  # Linux and other Unix-like systems
+        app_data_dir = os.path.join(os.path.expanduser('~'), '.config', 'ProTimer')
+    
     os.makedirs(app_data_dir, exist_ok=True)
     return os.path.join(app_data_dir, 'settings.json')
 
