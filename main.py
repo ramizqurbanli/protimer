@@ -243,7 +243,7 @@ settings_button = ttk.Button(window, text="Settings", command=openSettings, styl
 settings_button.pack(pady=5)
 
 # Copyright label
-copyright_label = tk.Label(window, text="© 2024 TUSI LLC", font=("Courier New", 8), fg="#A9A9A9", bg="#1a1a1a")
+copyright_label = tk.Label(window, text="© 2025 TUSI LLC", font=("Courier New", 8), fg="#A9A9A9", bg="#1a1a1a")
 copyright_label.pack(side=tk.BOTTOM, pady=5)
 
 # Run the main event loop
