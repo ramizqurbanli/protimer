@@ -33,7 +33,7 @@ window.configure(bg="#1a1a1a")  # Dark gray background
 
 def on_closing():
     window.destroy()
-
+    timer.stop()
 # Load icon image if available
 try:
     img = PhotoImage(file='logo.png')
