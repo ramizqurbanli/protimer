@@ -31,6 +31,9 @@ window.title("ProTimer")
 window.attributes("-topmost", True, "-alpha", window_opacity)
 window.configure(bg="#1a1a1a")  # Dark gray background
 
+def on_closing():
+    window.destroy()
+
 # Load icon image if available
 try:
     img = PhotoImage(file='logo.png')
@@ -246,5 +249,5 @@ settings_button.pack(pady=5)
 copyright_label = tk.Label(window, text="© 2025 TUSI LLC", font=("Courier New", 8), fg="#A9A9A9", bg="#1a1a1a")
 copyright_label.pack(side=tk.BOTTOM, pady=5)
 
-# Run the main event loop
+window.protocol("WM_DELETE_WINDOW", on_closing)
 window.mainloop()
