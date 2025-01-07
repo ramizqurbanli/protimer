@@ -245,8 +245,9 @@ reset_button.pack(pady=5)
 settings_button = ttk.Button(window, text="Settings", command=openSettings, style="SettingsButton.TButton")
 settings_button.pack(pady=5)
 
-# Copyright label
-copyright_label = tk.Label(window, text="© 2025 TUSI LLC", font=("Courier New", 8), fg="#A9A9A9", bg="#1a1a1a")
+# Copyright label with auto-updating year
+from datetime import datetime
+copyright_label = tk.Label(window, text=f"© {datetime.now().year} TUSI LLC", font=("Courier New", 8), fg="#A9A9A9", bg="#1a1a1a")
 copyright_label.pack(side=tk.BOTTOM, pady=5)
 
 window.protocol("WM_DELETE_WINDOW", on_closing)
