@@ -27,5 +27,4 @@ env/
 myenv/
 
 # Text files
-*.txt
 *.json
