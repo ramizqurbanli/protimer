@@ -137,6 +137,7 @@ def starter(is_break=False):
         start_minutes = break_time
         start_seconds = 0
     else:
+        # Only use paused values if they exist and we're not coming from a break
         start_minutes = paused_minutes if paused_minutes is not None else default_time
         start_seconds = paused_seconds if paused_seconds is not None else 0
 
@@ -148,6 +149,10 @@ def starter(is_break=False):
     updateLabel()
 
 def start_break():
+    global paused_minutes, paused_seconds
+    # Reset paused values before starting break
+    paused_minutes = None
+    paused_seconds = None
     messagebox.showinfo("Break Time", "Time for a break!")
     starter(is_break=True)
 
