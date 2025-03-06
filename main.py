@@ -31,6 +31,19 @@ window.title("ProTimer")
 window.attributes("-topmost", True, "-alpha", window_opacity)
 window.configure(bg="#1a1a1a")  # Dark gray background
 
+# Set dark title bar for Windows
+try:
+    from ctypes import windll, byref, sizeof, c_int
+    DWMWA_USE_IMMERSIVE_DARK_MODE = 20
+    windll.dwmapi.DwmSetWindowAttribute(
+        windll.user32.GetParent(window.winfo_id()),
+        DWMWA_USE_IMMERSIVE_DARK_MODE,
+        byref(c_int(1)),
+        sizeof(c_int)
+    )
+except Exception as e:
+    print(f"Could not set dark title bar: {e}")
+
 def on_closing():
     window.destroy()
     timer.stop()
@@ -252,7 +265,7 @@ settings_button.pack(pady=5)
 
 # Copyright label with auto-updating year
 from datetime import datetime
-copyright_label = tk.Label(window, text=f"© {datetime.now().year} TUSI LLC", font=("Courier New", 8), fg="#A9A9A9", bg="#1a1a1a")
+copyright_label = tk.Label(window, text=f"© {datetime.now().year} TUSI", font=("Courier New", 8), fg="#A9A9A9", bg="#1a1a1a")
 copyright_label.pack(side=tk.BOTTOM, pady=5)
 
 window.protocol("WM_DELETE_WINDOW", on_closing)
