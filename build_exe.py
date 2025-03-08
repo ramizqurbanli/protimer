@@ -11,7 +11,7 @@ PyInstaller.__main__.run([
     '--windowed',
     '--onefile',
     '--clean',
-    '--noupx',  # Avoid UPX compression which often triggers AV
+    '--upx-dir=upx',  # Enable UPX compression for smaller executable size
     '--disable-windowed-traceback',  # Reduce traceback information
     # Removed --uac-admin flag which can cause issues
     f'--icon={os.path.join(current_dir, "logo.png")}',
