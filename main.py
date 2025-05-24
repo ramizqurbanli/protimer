@@ -5,6 +5,46 @@ from tkinter import ttk
 from tkinter import *
 from settings_save import save_settings, load_settings # type: ignore
 
+dark_theme_colors = {
+    "bg": "#1a1a1a",
+    "label_fg": "#FFD700",
+    "label_bg": "#1a1a1a",
+    "start_button_bg": "#006400",
+    "start_button_fg": "white",
+    "start_button_active_bg": "#228B22",
+    "pause_button_bg": "#4682B4",
+    "pause_button_fg": "#D3D3D3",
+    "pause_button_active_bg": "#5A9BD5",
+    "reset_button_bg": "#FF8C00",
+    "reset_button_fg": "white",
+    "reset_button_active_bg": "#FF7F00",
+    "settings_button_bg": "#C0C0C0",
+    "settings_button_fg": "#696969",
+    "settings_button_active_bg": "#A9A9A9",
+    "copyright_fg": "#A9A9A9",
+    "copyright_bg": "#1a1a1a",
+}
+
+light_theme_colors = {
+    "bg": "#f0f0f0",
+    "label_fg": "#000000",
+    "label_bg": "#f0f0f0",
+    "start_button_bg": "#28a745",
+    "start_button_fg": "white",
+    "start_button_active_bg": "#218838",
+    "pause_button_bg": "#007bff",
+    "pause_button_fg": "white",
+    "pause_button_active_bg": "#0069d9",
+    "reset_button_bg": "#ffc107",
+    "reset_button_fg": "black",
+    "reset_button_active_bg": "#e0a800",
+    "settings_button_bg": "#6c757d",
+    "settings_button_fg": "white",
+    "settings_button_active_bg": "#5a6268",
+    "copyright_fg": "#333333",
+    "copyright_bg": "#f0f0f0",
+}
+
 # Initialize pause time globally
 paused_minutes = None
 paused_seconds = None
