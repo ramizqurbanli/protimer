@@ -269,30 +269,34 @@ def openSettings():
         tk.Label(settings_window, text="Window Opacity (0.1 to 1.0):"),
         tk.Label(settings_window, text="Theme:")
     ]
-    for label in settings_widgets["labels"]:
-        label.pack(pady=5 if label.cget("text") != "Theme:" else (5,0) )
+    
+    # Configure column weights
+    settings_window.columnconfigure(1, weight=1)
 
-
+    # Grid layout for labels and entries
+    settings_widgets["labels"][0].grid(row=0, column=0, padx=5, pady=5, sticky="w")
     entry_default_time = tk.Entry(settings_window)
     entry_default_time.insert(0, str(default_time))
-    entry_default_time.pack(pady=5)
+    entry_default_time.grid(row=0, column=1, padx=5, pady=5, sticky="ew")
 
+    settings_widgets["labels"][1].grid(row=1, column=0, padx=5, pady=5, sticky="w")
     entry_break_time = tk.Entry(settings_window)
     entry_break_time.insert(0, str(break_time))
-    entry_break_time.pack(pady=5)
+    entry_break_time.grid(row=1, column=1, padx=5, pady=5, sticky="ew")
+    
     settings_widgets["entries"] = [entry_default_time, entry_break_time]
 
-
+    settings_widgets["labels"][2].grid(row=2, column=0, padx=5, pady=5, sticky="w")
     scale_opacity = tk.Scale(settings_window, from_=0.1, to=1.0, resolution=0.1, orient=tk.HORIZONTAL)
     scale_opacity.set(window.attributes("-alpha"))
-    scale_opacity.pack(pady=5)
+    scale_opacity.grid(row=2, column=1, padx=5, pady=5, sticky="ew")
     settings_widgets["scale"] = scale_opacity
 
-    
+    settings_widgets["labels"][3].grid(row=3, column=0, padx=5, pady=5, sticky="w")
     combobox_style_name = "Settings.TCombobox"
     theme_combobox = ttk.Combobox(settings_window, values=["Light", "Dark"], state="readonly", style=combobox_style_name)
     theme_combobox.set(current_theme.capitalize()) 
-    theme_combobox.pack(pady=(0,5))
+    theme_combobox.grid(row=3, column=1, padx=5, pady=5, sticky="ew")
     settings_widgets["theme_combobox"] = theme_combobox
     
     # Initial theme application for settings window
@@ -338,7 +342,7 @@ def openSettings():
         on_close()
 
     save_button = ttk.Button(settings_window, text="Save", command=saveSettings, style="Save.TButton") # Changed style
-    save_button.pack(pady=10)
+    save_button.grid(row=4, column=0, columnspan=2, padx=5, pady=10, sticky="ew")
     # Ensure the save button itself is also themed if its style relies on settings_bg/fg
     # The "Save.TButton" style is based on StartButton colors from apply_theme, which is fine.
 
