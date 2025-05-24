@@ -1,4 +1,4 @@
-# ProTimer v1.1
+# ProTimer v1.2
 # Pomodoro Timer
 
 ## Overview
@@ -42,11 +42,9 @@ The Pomodoro Timer is a productivity application built using Python and Tkinter.
 - `main.py`: The main application file that contains the GUI and logic for the Pomodoro Timer.
 - `timer.py`: Contains the `CountdownTimer` class that handles the countdown logic.
 - `effect_sound.py`: Contains the function to play sound effects when the timer ends.
+- `settings_save.py`: Handles saving and loading user settings.
 
-## 
-
-main.py
-
+## main.py
 
 ### Functions
 - `updateLabel()`: Updates the timer label every second and handles the transition from work time to break time.
@@ -60,11 +58,7 @@ main.py
 ### GUI Setup
 - Creates the main window and sets its properties.
 - Creates a timer label with a monospace font.
-- Defines styles for the buttons using 
-
-`ttk.Style`
-
-.
+- Defines styles for the buttons using `ttk.Style`.
 
 ## timer.py
 ### CountdownTimer Class
@@ -79,8 +73,18 @@ Handles the countdown logic for the timer.
 Plays a sound file for a specified duration (default is 3 seconds).
 - `play_sound(file_path, duration=3)`: Plays the sound file at `file_path` for `duration` seconds.
 
+## settings_save.py
+### Overview
+The `settings_save.py` script is responsible for saving and loading settings for the ProTimer application. It handles different operating systems by storing the settings file in the appropriate directory.
+
+- On **Windows**, the settings are stored in the `APPDATA\ProTimer` directory.
+- On **Linux** and other Unix-like systems, the settings are stored in the `~/.config/ProTimer` directory.
+
+### Functions
+- `get_settings_path()`: Determines the path to the settings file based on the operating system.
+- `save_settings(settings)`: Saves the provided settings to the settings file in JSON format.
+- `load_settings()`: Loads and returns the settings from the settings file. If the file does not exist or is corrupted, it returns default settings.
 
 ## Acknowledgements
 - [Tkinter](https://docs.python.org/3/library/tkinter.html) for the GUI.
 - [audioplayer](https://pypi.org/project/audioplayer/) for playing sound effects.
-
