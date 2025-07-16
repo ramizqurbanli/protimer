@@ -8,6 +8,8 @@ The Pomodoro Timer is a productivity application built using Python and Tkinter.
 - Start, pause, and reset the timer.
 - Automatically transitions from work time to break time.
 - Customizable work and break durations.
+- **Light and dark themes.**
+- **Adjustable window opacity.**
 - Plays a sound when the timer ends.
 - Simple and intuitive user interface.
 
@@ -53,7 +55,11 @@ The Pomodoro Timer is a productivity application built using Python and Tkinter.
 - `end_break()`: Resets the timer after the break session ends.
 - `pause()`: Pauses the timer.
 - `reset()`: Resets the timer to the default time.
-- `openSettings()`: Opens the settings window to configure work and break times.
+- `openSettings()`: Opens the settings window to configure work and break times, theme, and opacity.
+- `apply_theme(theme_name)`: Applies the selected theme (light or dark) to the application.
+
+### Theming
+The application supports both light and dark themes. The theme can be changed in the settings window. The `dark_theme_colors` and `light_theme_colors` dictionaries define the color schemes for the different themes.
 
 ### GUI Setup
 - Creates the main window and sets its properties.
@@ -74,16 +80,7 @@ Plays a sound file for a specified duration (default is 3 seconds).
 - `play_sound(file_path, duration=3)`: Plays the sound file at `file_path` for `duration` seconds.
 
 ## settings_save.py
-### Overview
-The `settings_save.py` script is responsible for saving and loading settings for the ProTimer application. It handles different operating systems by storing the settings file in the appropriate directory.
-
-- On **Windows**, the settings are stored in the `APPDATA\ProTimer` directory.
-- On **Linux** and other Unix-like systems, the settings are stored in the `~/.config/ProTimer` directory.
-
-### Functions
-- `get_settings_path()`: Determines the path to the settings file based on the operating system.
-- `save_settings(settings)`: Saves the provided settings to the settings file in JSON format.
-- `load_settings()`: Loads and returns the settings from the settings file. If the file does not exist or is corrupted, it returns default settings.
+The `settings_save.py` script handles saving and loading user settings, such as work/break durations, theme, and window opacity. It stores the settings in a JSON file in the appropriate directory for the user's operating system (`%APPDATA%\\ProTimer` on Windows and `~/.config/ProTimer` on Linux/macOS).
 
 ## Acknowledgements
 - [Tkinter](https://docs.python.org/3/library/tkinter.html) for the GUI.
