@@ -2,7 +2,7 @@ altgraph==0.17.4
 audioplayer==0.6
 cx_Freeze==7.2.5
 cx_Logging==3.2.1
-lief==0.15.1
+lief==0.17.2
 packaging==24.2
 pefile==2023.2.7
 pillow==11.0.0
